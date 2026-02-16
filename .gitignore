@@ -1,0 +1,283 @@
+# ═══════════════════════════════════════════════════════════════
+# CyberXLTR Admin - Comprehensive .gitignore
+# ═══════════════════════════════════════════════════════════════
+# Covers Python, Node.js, Docker, PostgreSQL, sync logs, secrets, and temp files
+
+# ── Python Virtual Environment ──
+venv/
+.venv/
+env/
+ENV/
+.ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ── Node.js ──
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+npm-debug.log*
+lerna-debug.log*
+.pnpm-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+.pnp
+.pnp.js
+.pnp.loader.mjs
+.next/
+out/
+.nuxt/
+dist/
+build/
+.cache/
+.parcel-cache/
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+.tsbuildinfo
+
+# ── Database & PostgreSQL ──
+*.db
+*.sqlite
+*.sqlite3
+postgres_data/
+pgdata/
+*.pgdump
+*.sql.bak
+migrations/versions/*.sql
+
+# ── Docker ──
+.docker/
+docker-compose.override.yml
+.dockerignore
+
+# ── Logs & Debug Files ──
+*.log
+logs/
+debug.log
+*.log.*
+*_debug.log
+error.log
+access.log
+server.log
+sync_events.log
+cross_service_sync.log
+
+# ── Environment & Secrets ──
+.env
+.env.*
+!.env.example
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.envrc
+.envrc.local
+secrets/
+secrets.json
+config/secrets/
+*.key
+*.pem
+*.crt
+*.cer
+*.p12
+*.pfx
+*.jks
+*.keystore
+inter_service_key.txt
+sync_api_key.txt
+
+# ── IDE & Editor ──
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.tmp
+*.temp
+
+# ── OS Generated ──
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ── Test Files ──
+test_*.py
+test_*.json
+*_test.json
+test_*.log
+*_test_data/
+test_results/
+test_outputs/
+
+# ── Generated/Test Data ──
+debug_*.py
+simple_test.py
+check_*.py
+verify_api.py
+run_*.py
+test_*.py
+*.json.bak
+*_backup.json
+
+# ── API Keys & Secrets ──
+.gemini_api_key
+.openai_api_key
+.anthropic_api_key
+.claude_api_key
+*.api_key
+api_keys.txt
+keys.txt
+admin_api_key.txt
+service_api_key.txt
+
+# ── Sync & Cross-Service ──
+sync_logs/
+sync_events/
+cross_service/
+inter_service/
+*.sync
+sync_status.json
+sync_failures.log
+
+# ── Temporary Files ──
+*.tmp
+*.temp
+.tmp/
+.temp/
+temp/
+tmp/
+.cache/
+__pycache__/
+*.pyc
+*.pyo
+
+# ── Coverage & Testing ──
+.coverage
+.pytest_cache/
+.tox/
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+htmlcov/
+.nox/
+
+# ── Documentation ──
+docs/_build/
+*.md.bak
+*.rst.bak
+
+# ── Package Management ──
+Pipfile.lock
+poetry.lock
+requirements-dev.txt
+requirements-prod.txt
+
+# ── Cloud & Deployment ──
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+serverless.yml.bak
+.chalice/
+
+# ── Monitoring & Metrics ──
+metrics/
+monitoring/
+prometheus/
+grafana/
+*.prom
+*.metrics
+
+# ── Backup Files ──
+*.bak
+*.backup
+*~
+*.orig
+*.rej
+*.swp
+*.swo
+
+# ── Local Development ──
+.local/
+dev/
+development/
+local/
+scratch/
+
+# ── CI/CD ──
+.github/workflows/*.yml.bak
+.gitlab-ci.yml.bak
+circleci/
+travis/
+jenkins/
+
+# ── Specific to CyberXLTR Admin ──
+cyberxltr_main/
+main_service/
+organizations_sync/
+users_sync/
+admin_dashboard_data/
+audit_logs/
+admin_metrics/
+user_management/
+org_management/
+
+# ── Supabase (legacy) ──
+supabase/
+supabase_config.json
+supabase_key.json
+
+# ── Allow specific files ──
+!.env.example
+!README.md
+!Makefile
+!docker-compose.yml
+!requirements.txt
+!package.json
+!package-lock.json
+!tsconfig.json
+!next.config.js
+!tailwind.config.js
+!postcss.config.js
+!alembic.ini
+
+# ── GitHub Templates ──
+.github/
+!.github/workflows/
+!.github/ISSUE_TEMPLATE/
+!.github/PULL_REQUEST_TEMPLATE/
+
+# ── End of .gitignore ──
