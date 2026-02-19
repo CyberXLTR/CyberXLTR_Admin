@@ -1,21 +1,4 @@
 # CyberXLTR Admin Frontend Dockerfile
-FROM node:18-alpine AS builder
-
-WORKDIR /app
-
-# Copy package files
-COPY package*.json ./
-
-# Install dependencies
-RUN npm ci
-
-# Copy application code
-COPY . .
-
-# Build the application
-RUN npm run build
-
-# Production stage
 FROM node:18-alpine
 
 WORKDIR /app
@@ -23,17 +6,15 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install production dependencies only
-RUN npm ci --only=production
+# Install dependencies (use npm install since package-lock.json may not exist)
+RUN npm install
 
-# Copy built application
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/next.config.js ./
+# Copy application code
+COPY . .
 
 # Expose port
 EXPOSE 3001
 
-# Start the application
-CMD ["npm", "start"]
+# Default command (overridden by docker-compose for dev)
+CMD ["npm", "run", "dev"]
 

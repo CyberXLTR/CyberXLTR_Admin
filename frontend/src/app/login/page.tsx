@@ -32,7 +32,14 @@ export default function LoginPage() {
         setError(response.data.message || 'Login failed')
       }
     } catch (err: any) {
-      setError(err.response?.data?.detail || 'Invalid credentials')
+      const detail = err.response?.data?.detail
+      if (typeof detail === 'string') {
+        setError(detail)
+      } else if (Array.isArray(detail)) {
+        setError(detail.map((d: any) => d.msg || String(d)).join(', '))
+      } else {
+        setError('Invalid credentials')
+      }
     } finally {
       setLoading(false)
     }

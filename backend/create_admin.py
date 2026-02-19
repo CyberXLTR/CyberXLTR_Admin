@@ -20,7 +20,7 @@ import uuid
 async def create_admin_user():
     """Create the admin user"""
     email = "admin@cyberxltr.com"
-    password = "Cyberxltr#01"  # Change this immediately after first login
+    password = "CyberXLTR#01"  # Change this immediately after first login
     
     print(f"Creating admin user: {email}")
     
