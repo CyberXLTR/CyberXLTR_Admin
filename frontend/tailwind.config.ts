@@ -10,16 +10,21 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          50: '#fef2f2',
-          100: '#fee2e2',
-          200: '#fecaca',
-          300: '#fca5a5',
-          400: '#f87171',
-          500: '#ef4444',
-          600: '#dc2626',
-          700: '#b91c1c',
-          800: '#991b1b',
-          900: '#7f1d1d',
+          50: '#e6f2ff',
+          100: '#b3d9ff',
+          200: '#80bfff',
+          300: '#4da6ff',
+          400: '#1a8cff',
+          500: '#0073e6',
+          600: '#005bb3',
+          700: '#004380',
+          800: '#002b4d',
+          900: '#00131a',
+        },
+        blue: {
+          DEFAULT: '#0073e6',
+          light: '#4da6ff',
+          dark: '#004380',
         },
       },
     },
@@ -27,4 +32,3 @@ const config: Config = {
   plugins: [],
 }
 export default config
-

@@ -4,7 +4,7 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 249, 250, 251;
+  --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
 }
 
@@ -25,3 +25,14 @@ body {
   }
 }
 
+.gradient-blue {
+  background: linear-gradient(135deg, #0073e6 0%, #004380 100%);
+}
+
+.shadow-blue {
+  box-shadow: 0 4px 14px 0 rgba(0, 115, 230, 0.39);
+}
+
+.border-gradient {
+  border-image: linear-gradient(135deg, #0073e6, #004380) 1;
+}

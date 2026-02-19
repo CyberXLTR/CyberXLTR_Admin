@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Sidebar } from '@/components/Sidebar'
+import { Header } from '@/components/Header'
 import { useAuthStore } from '@/store/authStore'
 
 export default function DashboardLayout({
@@ -12,23 +13,25 @@ export default function DashboardLayout({
 }) {
   const router = useRouter()
   const { isAuthenticated, initAuth } = useAuthStore()
+  const [hydrated, setHydrated] = useState(false)
 
   useEffect(() => {
     initAuth()
+    setHydrated(true)
   }, [initAuth])
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (hydrated && !isAuthenticated) {
       router.push('/login')
     }
-  }, [isAuthenticated, router])
+  }, [hydrated, isAuthenticated, router])
 
-  if (!isAuthenticated) {
+  if (!hydrated || !isAuthenticated) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-12 h-12 border-4 border-red-200 border-t-red-600 rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-black font-bold">Loading...</p>
+          <div className="w-12 h-12 border-4 border-primary-200 border-t-primary-600 rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-black font-bold">Verifying session...</p>
         </div>
       </div>
     )
@@ -37,12 +40,12 @@ export default function DashboardLayout({
   return (
     <div className="min-h-screen bg-gray-50">
       <Sidebar />
-      <div className="pl-64">
-        <main className="p-8">
+      <div className="ml-64">
+        <Header />
+        <main className="p-8 pt-8">
           {children}
         </main>
       </div>
     </div>
   )
 }
-
